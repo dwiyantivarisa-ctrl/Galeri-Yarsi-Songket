@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Tim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<section class="container s-team-detail">
+    <div class="team-detail-card" id="profile">
+        <p>Memuat data...</p>
+    </div>
+
+    <div style="margin-top:2rem;">
+        <a href="team.html" class="btn-about">← Kembali ke Team</a>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const data = {
+        owner: {
+            name: "Yarsi Novita",
+            role: "Founder & Owner",
+            img: "images/avatars/user-01.jpg",
+            desc: "Pendiri Galeri Yarsi Songket sejak tahun 2000."
+        },
+        it1: {
+            name: "Varisa Dwi Yanti",
+            role: "Web Developer",
+            img: "images/avatars/user-02.jpg",
+            desc: "Mengembangkan dan menjaga sistem website."
+        },
+        it2: {
+            name: "IT Staff 2",
+            role: "System Support",
+            img: "images/team/it2.jpg",
+            desc: "Menangani infrastruktur digital."
+        },
+        it3: {
+            name: "IT Staff 3",
+            role: "UI/UX Designer",
+            img: "images/team/it3.jpg",
+            desc: "Merancang tampilan antarmuka."
+        },
+        mkt1: {
+            name: "Marketing 1",
+            role: "Digital Marketing",
+            img: "images/team/mkt1.jpg",
+            desc: "Strategi promosi digital."
+        },
+        mkt2: {
+            name: "Marketing 2",
+            role: "Brand Marketing",
+            img: "images/team/mkt2.jpg",
+            desc: "Branding dan komunikasi."
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const person = params.get("person");
+
+    const profile = document.getElementById("profile");
+
+    if (data[person]) {
+        profile.innerHTML = `
+            <img src="${data[person].img}" alt="${data[person].name}" style="width:280px; margin-bottom:1.5rem;">
+            <h2>${data[person].name}</h2>
+            <h4 style="color:#c2a480;">${data[person].role}</h4>
+            <p style="margin-top:1rem;">${data[person].desc}</p>
+        `;
+    } else {
+        profile.innerHTML = `
+            <p>Data tidak ditemukan.</p>
+        `;
+    }
+
+});
+</script>
+
+</body>
+</html>
